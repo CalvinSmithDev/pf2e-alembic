@@ -106,6 +106,19 @@ export class AlembicSettings {
           // Set the current values in the input fields
           html.find('#versatile-vials').val(settings.versatileVials);
           html.find('#daily-preparations').val(settings.dailyPreparations);
+
+          // Add event listeners for default buttons
+          html.find('#default-vials').click(() => {
+            const alembic = Alembic.getInstance();
+            const defaultVials = alembic.getDefaultMaxVials();
+            html.find('#versatile-vials').val(defaultVials);
+          });
+
+          html.find('#default-preparations').click(() => {
+            const alembic = Alembic.getInstance();
+            const defaultPreparations = alembic.getDefaultDailyPreparations();
+            html.find('#daily-preparations').val(defaultPreparations);
+          });
         }
       });
 

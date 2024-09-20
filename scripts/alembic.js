@@ -626,6 +626,20 @@ class Alembic extends Application {
     this.spawnedItems = [];
     this.render(true);
   }
+
+  getDefaultMaxVials() {
+    const actor = this.getActiveCharacter();
+    if (!actor) return 2; // Default to 2 if no actor is found
+    const intMod = actor.system.abilities?.int?.mod ?? 0;
+    return intMod + 2;
+  }
+
+  getDefaultDailyPreparations() {
+    const actor = this.getActiveCharacter();
+    if (!actor) return 4; // Default to 4 if no actor is found
+    const intMod = actor.system.abilities?.int?.mod ?? 0;
+    return intMod + 4;
+  }
 }
 
 // Register keybinding to open Alchemy Tracker
