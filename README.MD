@@ -2,7 +2,10 @@
 
 Alembic is a Foundry VTT module designed to help Pathfinder 2e players manage their Alchemist's Versatile Vials and Daily Preparations.
 
+![Alembic Screenshot](https://raw.githubusercontent.com/CalvinSmithDev/pf2e-alembic/refs/heads/master/assets/Demo.jpg)
+
 ## Features
+
 
 - Track Versatile Vials
 - Manage Daily Preparations
