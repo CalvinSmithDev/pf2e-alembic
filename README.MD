@@ -45,7 +45,7 @@ The module will use these custom values instead of calculating them based on you
 
 ## Support
 
-If you encounter any issues or have suggestions for improvements, please open an issue on the [GitHub repository](https://github.com/CalvinSmithDev/Alembic/issues).
+If you encounter any issues or have suggestions for improvements, please open an issue on the [GitHub repository](https://github.com/CalvinSmithDev/pf2e-alembic/issues).
 
 ## License
 
