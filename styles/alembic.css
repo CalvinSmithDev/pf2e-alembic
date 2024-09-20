@@ -261,3 +261,25 @@
     color: #ff0000;
     margin-left: 5px;
 }
+
+/* Alembic Settings Form */
+.alembic-settings-form .form-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.alembic-settings-form .input-group {
+  display: flex;
+}
+
+.alembic-settings-form .form-control {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.alembic-settings-form .btn {
+  white-space: nowrap;
+}

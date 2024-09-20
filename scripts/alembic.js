@@ -17,11 +17,6 @@ class Alembic extends Application {
     this.originalSize = { width: options.width, height: options.height }; // Original window size
     this.maximizedSize = null;        // Stores the maximized window size when minimized
     this.isMinimized = false;         // Add this line to track minimized state
-    this.maxVials = AlembicSettings.getSettings().versatileVials;
-    this.dailyPreparations = AlembicSettings.getSettings().dailyPreparations;
-
-    // Add a listener for the formulasClosed event
-    Hooks.on('formulasClosed', this._onFormulasClosed.bind(this));
   }
 
   // Define default options for the application window
@@ -59,8 +54,9 @@ class Alembic extends Application {
     }
 
     // Use the settings for maxVials and maxItems
-    const maxVials = this.maxVials ?? (intMod + 2);
-    const maxItems = this.dailyPreparations ?? (intMod + 4);
+    const settings = AlembicSettings.getSettings();
+    const maxVials = settings.versatileVials || (intMod + 2);
+    const maxItems = settings.dailyPreparations || (intMod + 4);
     // Return data object for the template
     return {
       intMod,
@@ -607,7 +603,7 @@ class Alembic extends Application {
     button.text(game.i18n.localize("myModule.alembic.ui.openFormulaBook"));
   }
 
-  // Add this new method to remove an item from the list
+  //  method to remove an item from the list
   _removeItem(id) {
     this.items = this.items.filter(item => item.id !== id);
     this.render();
@@ -615,16 +611,15 @@ class Alembic extends Application {
   }
 
   updateMaxVials(value) {
-    this.maxVials = value;
     this.render(true);
   }
 
   updateDailyPreparations(value) {
-    this.dailyPreparations = value;
     // Reset the current items and spawned items
     this.items = [];
     this.spawnedItems = [];
     this.render(true);
+    this.updateDailyPreparationsCount();
   }
 
   getDefaultMaxVials() {

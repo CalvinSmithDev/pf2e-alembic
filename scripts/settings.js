@@ -33,28 +33,14 @@ export class AlembicSettings {
     const versatileVials = parseInt(formData['versatile-vials']);
     const dailyPreparations = parseInt(formData['daily-preparations']);
 
-    let settingsChanged = false;
-
     if (!isNaN(versatileVials)) {
       game.settings.set('alembic', 'versatileVials', versatileVials);
-      settingsChanged = true;
     }
     if (!isNaN(dailyPreparations)) {
       game.settings.set('alembic', 'dailyPreparations', dailyPreparations);
-      settingsChanged = true;
     }
 
-    if (settingsChanged) {
-      ui.notifications.info("Alembic settings updated.");
-
-      // Update the Alembic instance with new values
-      const alembic = Alembic.getInstance();
-      alembic.updateMaxVials(versatileVials);
-      alembic.updateDailyPreparations(dailyPreparations);
-      
-      // Force a re-render of the Alembic instance
-      alembic.render(true);
-    }
+    ui.notifications.info("Alembic settings updated.");
   }
 
   static getSettings() {
