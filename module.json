@@ -2,7 +2,7 @@
   "id": "pf2e-alembic",
   "title": "PF2e Alembic",
   "description": "Tracks your versatile vials and advanced alchemy slots.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "icon": "assets/icon.png",
   "compatibility": {
     "minimum": "12",
@@ -31,7 +31,7 @@
   ],
   "url": "https://github.com/CalvinSmithDev/pf2e-alembic",
   "manifest": "https://raw.githubusercontent.com/CalvinSmithDev/pf2e-alembic/refs/heads/master/module.json",
-  "download": "https://github.com/CalvinSmithDev/pf2e-alembic/releases/download/v1.0.0/pf2e-alembic.v1.0.0.zip",
+  "download": "https://github.com/CalvinSmithDev/pf2e-alembic/releases/download/v1.1.0/pf2e-alembic.v1.1.0.zip",
   "license": "MIT",
   "readme": "README.md",
   "bugs": "https://github.com/CalvinSmithDev/pf2e-alembic/issues",
