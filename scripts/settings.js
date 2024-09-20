@@ -50,7 +50,7 @@ export class AlembicSettings {
       // Update the Alembic instance with new values
       const alembic = Alembic.getInstance();
       alembic.updateMaxVials(versatileVials);
-      alembic.updateDailyPreparationsCount(dailyPreparations);
+      alembic.updateDailyPreparations(dailyPreparations);
       
       // Force a re-render of the Alembic instance
       alembic.render(true);
