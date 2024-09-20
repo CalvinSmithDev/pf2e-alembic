@@ -65,10 +65,15 @@ export class AlembicSettings {
   }
 
   static async openSettings() {
+    if (this.settingsWindow && !this.settingsWindow.closed) {
+      this.settingsWindow.focus();
+      return;
+    }
+
     try {
       const content = await renderTemplate('modules/pf2e-alembic/templates/settings.html', this.getSettings());
       
-      new Dialog({
+      this.settingsWindow = new Dialog({
         title: "Alembic Settings",
         content: content,
         buttons: {
@@ -93,10 +98,12 @@ export class AlembicSettings {
           }
         },
         default: "save",
-        render: html => {
-
+        close: () => {
+          this.settingsWindow = null;
         }
-      }).render(true);
+      });
+
+      this.settingsWindow.render(true);
     } catch (error) {
       console.error("Error rendering Alembic settings:", error);
       ui.notifications.error("Failed to open Alembic settings.");
