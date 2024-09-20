@@ -276,7 +276,7 @@
 }
 
 .alembic-settings-form .form-control {
-  flex: 1;
+  /* flex: 1; */
   margin-right: 10px;
 }
 
