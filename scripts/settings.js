@@ -29,18 +29,33 @@ export class AlembicSettings {
     });
   }
 
-  static updateSettings(formData) {
+  static async updateSettings(formData) {
     const versatileVials = parseInt(formData['versatile-vials']);
     const dailyPreparations = parseInt(formData['daily-preparations']);
 
     if (!isNaN(versatileVials)) {
-      game.settings.set('alembic', 'versatileVials', versatileVials);
+      const alembic = Alembic.getInstance();
+      const currentVials = alembic.currentVials;
+
+      // Update the setting
+      await game.settings.set('alembic', 'versatileVials', versatileVials);
+
+      // If the new maxVials is less than the current vials, reduce the inventory
+      if (versatileVials < currentVials) {
+        const reduction = currentVials - versatileVials;
+        await alembic.updateVersatileVials(-reduction);
+        ui.notifications.info(`Reduced Versatile Vials in inventory by ${reduction} to match new maximum.`);
+      }
     }
+
     if (!isNaN(dailyPreparations)) {
-      game.settings.set('alembic', 'dailyPreparations', dailyPreparations);
+      await game.settings.set('alembic', 'dailyPreparations', dailyPreparations);
     }
 
     ui.notifications.info("Alembic settings updated.");
+
+    // Render the Alembic instance to reflect the changes
+    Alembic.getInstance().render(true);
   }
 
   static getSettings() {
