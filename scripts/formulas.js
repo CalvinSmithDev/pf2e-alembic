@@ -268,7 +268,7 @@ class Formulas extends Application {
             return this.bringToTop();
         }
         const data = await this.getData(options);
-        return super.render(force, mergeObject(options, { data }));
+        return super.render(force, foundry.utils.mergeObject(options, { data }));
     }
 
     async _onDeleteFormula(event) {
