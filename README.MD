@@ -17,7 +17,7 @@ Alembic is a Foundry VTT module designed to help Pathfinder 2e players manage th
 - Settings menu for customizing maximum Versatile Vials and Daily Preparations
 - Drag-and-drop interface for adding formulas to the Formula Book
 - Chat messages for formula information
-- Automatic expiration of infused items after resting
+- Handling for infused items and resting
 
 ## Installation
 
