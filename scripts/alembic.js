@@ -28,7 +28,7 @@ class Alembic extends Application {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       title: game.i18n.localize("myModule.alembic.name"), // Window title
-      template: "modules/alembic/templates/alembic.html", // Path to HTML template
+      template: "modules/pf2e-alembic/templates/alembic.html", // Path to HTML template
       width: 265,
       height: 550,
       left: 0,

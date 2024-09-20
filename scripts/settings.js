@@ -66,7 +66,7 @@ export class AlembicSettings {
 
   static async openSettings() {
     try {
-      const content = await renderTemplate('modules/alembic/templates/settings.html', this.getSettings());
+      const content = await renderTemplate('modules/pf2e-alembic/templates/settings.html', this.getSettings());
       
       new Dialog({
         title: "Alembic Settings",

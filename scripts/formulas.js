@@ -10,7 +10,7 @@ class Formulas extends Application {
 
     static get defaultOptions() {
       return foundry.utils.mergeObject(super.defaultOptions, {
-        template: "modules/alembic/templates/formulas.html",
+        template: "modules/pf2e-alembic/templates/formulas.html",
         width: 400,
         height: 500,
         resizable: true,
