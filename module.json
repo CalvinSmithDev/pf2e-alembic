@@ -1,0 +1,39 @@
+{
+  "id": "pf2e-alembic",
+  "title": "PF2e Alembic",
+  "description": "Tracks your versatile vials and advanced alchemy slots.",
+  "version": "0.1.0",
+  "icon": "assets/icon.png",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12",
+    "maximum": "12"
+  },
+  "authors": [
+    {
+      "name": "Calvin Smith",
+      "email": "calvinsmithdev@gmail.com",
+      "discord": "onotadaki"
+    }
+  ],
+  "esmodules": [
+    "scripts/alembic.js"
+  ],
+  "styles": [
+    "styles/alembic.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "languages/en.json"
+    }
+  ],
+  "url": "https://github.com/CalvinSmithDev/Alembic",
+  "manifest": "https://github.com/CalvinSmithDev/Alembic/raw/main/module.json",
+  "download": "https://github.com/CalvinSmithDev/Alembic/releases/download/v0.1.0-alpha/Alembic.zip",
+  "license": "MIT",
+  "readme": "README.md",
+  "bugs": "https://github.com/CalvinSmithDev/Alembic/issues",
+  "changelog": "CHANGELOG.md"
+}

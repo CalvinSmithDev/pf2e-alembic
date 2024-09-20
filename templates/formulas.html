@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula Book</title>
+</head> 
+<body>
+    <div class="formulas">
+        <h2>{{localize "myModule.formulas.knownFormulas"}}</h2>
+        {{#each formulasByLevel as |levelFormulas level|}}
+            <h3>{{localize "myModule.formulas.level"}} {{level}}</h3>
+            <table class="formula-table">
+                <thead>
+                    <tr>
+                        <th>{{localize "myModule.formulas.name"}}</th>
+                        <th>{{localize "myModule.formulas.type"}}</th>
+                        <th>{{localize "myModule.formulas.dc"}}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each levelFormulas}}
+                        <tr class="formula-item {{#unless isAlchemical}}non-alchemical{{/unless}}" data-uuid="{{uuid}}">
+                            <td class="item-name" draggable="true">
+                                <img src="{{img}}" alt="{{name}}" class="formula-icon" width="24" height="24">
+                                <span class="formula-name">{{name}}</span>
+                                {{#unless isAlchemical}}
+                                      <i class="fas fa-info-circle non-alchemical-icon" title="Non-Alchemical"></i>
+                                {{/unless}}
+                            </td>
+                            <td>{{type}}</td>
+                            <td>{{dc}}</td>
+                            <td><i class="fas fa-trash-alt delete-formula" title="Delete Formula"></i></td> <!-- New column with garbage can icon -->
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        {{else}}
+            <p>No formulas found.</p>
+        {{/each}}
+
+        <h2>{{localize "myModule.formulas.droppedItems"}}</h2>
+        <ul id="droppedItemsList">
+            {{#each droppedItems}}
+                <li>{{this.name}}</li>
+            {{/each}}
+        </ul>
+
+        <div id="formulaDropZone" class="drop-zone">
+            {{localize "myModule.formulas.dropZone"}}
+        </div>   
+    </div>
+</body>
+</html>

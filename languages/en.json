@@ -1,0 +1,94 @@
+{
+  "myModule": {
+    "name": "Alembic",
+    "description": "Tracks your versatile vials and advanced alchemy slots.",
+    
+    "settings": {
+      "enableFeature": {
+        "name": "Enable Feature",
+        "hint": "Turn on/off the main feature of this module."
+      },
+      "customOption": {
+        "name": "Custom Option",
+        "hint": "Adjust this custom option for the module."
+      }
+    },
+    
+    "dialogs": {
+      "confirm": {
+        "title": "Confirmation",
+        "content": "Are you sure you want to proceed?",
+        "yes": "Yes",
+        "no": "No"
+      }
+    },
+
+    "hotkeys": {
+      "openalembic": {
+          "name": "Open Alembic"
+      }
+  },
+
+    "notifications": {
+      "success": "Operation completed successfully!",
+      "error": "An error occurred. Please try again."
+    },
+    
+    "ui": {
+      "button": {
+        "apply": "Apply",
+        "cancel": "Cancel",
+        "reset": "Reset to Default"
+      },
+      "label": {
+        "options": "Options",
+        "advanced": "Advanced Settings"
+      }
+    },
+    
+    "alembic": {
+      "name": "Alembic",
+      "description": "Tracks your versatile vials and advanced alchemy slots.",
+      "ui": {
+        "useVial": "Use Vial",
+        "addVial": "Add Vial",
+        "addItem": "Add Items To Inventory",
+        "reset": "Reset Daily Preparations",
+        "vialCount": "Vials: {current}/{max}",
+        "itemCount": "Items: {current}/{max}",
+        "openFormulaBook": "Open Formula Book",
+        "closeFormulaBook": "Close Formula Book"
+      },
+      "notifications": {
+        "noVials": "No vials left to use!",
+        "maxVials": "Maximum number of vials ({max}) reached!",
+        "noCharacter": "No active character found.",
+        "noItems": "No items to add to inventory.",
+        "itemsAdded": "Added {count} infused items to inventory.",
+        "failedToAddItems": "Failed to add items to inventory."
+      },
+      "chat": {
+        "removedVial": "Removed a Versatile Vial.",
+        "addedVial": "Added a Versatile Vial.",
+        "createdItems": "Created {count} infused alchemical items using Daily Preparations: {items}",
+        "tenMinutesPassed": "Ten minutes have passed in exploration mode!",
+        "addTwoVials": "Add 2 Versatile Vials",
+        "addedTwoVials": "Successfully added 2 Versatile Vials.",
+        "addedSomeVials": "Added {count} Versatile Vial(s). Maximum capacity reached.",
+        "addedVials": "Added {count} Versatile Vial(s).",
+        "refilledVials": "Refilled Versatile Vials to maximum capacity ({max}).",
+        "resetPreparations": "Daily preparations have been reset after resting for the night."
+      }
+    },
+    
+    "formulas": {
+      "knownFormulas": "Known Alchemical Formulae",
+      "level": "Level",
+      "name": "Name",
+      "type": "Type",
+      "droppedItems": "Learn New Formulae",
+      "dropZone": "Drop items and formulae here",
+      "dc": "DC"
+    }
+  }
+}

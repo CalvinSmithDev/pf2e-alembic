@@ -1,0 +1,263 @@
+/* Item list styles */
+#itemList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  /* border: 1px solid #000; */
+  border-radius: 3px;
+  max-height: 200px;
+  overflow-y: auto;
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed; /* Add this line to fix column widths */
+}
+
+#itemList th, #itemList td {
+  padding: 5px;
+  border: 1px solid #ddd;
+  overflow: hidden; /* Add this line to hide overflow */
+  text-overflow: ellipsis; /* Add this line for ellipsis */
+  white-space: nowrap; /* Add this line to prevent wrapping */
+}
+
+#itemList .item {
+  display: flex;
+  align-items: stretch;
+  height: 28px;
+}
+
+#itemList .item-name {
+  cursor: move;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-right: 5px;
+  max-width: 100%; /* Add this line to limit width */
+}
+
+#itemList .item-name .item-image {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-right: 5px;
+  padding-right: 2px; 
+}
+
+#itemList .item-name img {
+  max-width: 24px;
+  max-height: 24px;
+  object-fit: contain;
+}
+
+#itemList .item-name h4 {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: calc(100% - 32px); /* Adjust based on your image size */
+}
+
+#itemList .item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+#itemList .delete-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px; /* Set a fixed width */
+  text-align: center; /* Center the icon */
+  height: 100%;
+}
+
+/* Reset button */
+#reset {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  /*background-color: #420300;*/
+}
+
+#reset:hover {
+  background-color: #d32f2f;
+}
+
+.alchemy-tracker .window-header .toggle-content {
+  flex: 0 0 24px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.vial-count {
+  margin-left: 10px;
+  font-size: 0.8em;
+  color: #7a7971;
+  flex: 0 0 auto;
+  padding-right: 5px;
+}
+
+.window-header {
+  flex-wrap: nowrap;
+}
+
+/* Minimized view styles */
+.minimized-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  background-color: #f0f0e0;
+  border-top: 1px solid #b5b3a4;
+}
+
+.minimized-content .vial-count {
+  margin-right: 10px;
+}
+
+.minimized-content .use-vial {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.minimized-content .use-vial:hover {
+  background-color: #45a049;
+}
+
+/* Formula item styles */
+.formula-item .item-image {
+  flex: 0 0 24px;
+  margin-right: 5px;
+}
+
+.formula-item .formula-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  border: none;
+}
+
+.formula-item .item-name {
+  align-items: center;
+}
+
+.formula-item h4 {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Formula table styles */
+.formula-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.formula-table th, .formula-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.formula-table th {
+    background-color: #d0c8c7;
+    color: black;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Drop zone styles */
+.drop-zone {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+}
+
+.drop-zone.dragover {
+    background-color: #f0f0f0;
+}
+
+/* Formula item styles */
+.formula-item .item-name {
+    cursor: move;
+    display: flex;
+    align-items: center;
+}
+
+.formula-item .formula-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.non-alchemical {
+    color: red;
+}
+
+.item-name {
+    display: flex;
+    align-items: center;
+}
+
+.formula-icon {
+    margin-right: 5px;
+}
+
+.formula-name {
+    flex-grow: 1;
+}
+
+.non-alchemical-icon {
+    margin-left: 5px;
+    flex: 0;
+}
+
+.item.flexrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 8px; /* Add some padding on the right for the icon */
+}
+
+.item-name.flexrow {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.delete-item {
+  cursor: pointer;
+  color: #777;
+  transition: color 0.3s ease;
+  margin-left: auto; /* Push the icon to the far right */
+  padding-left: 8px; /* Add some space between the item name and the icon */
+}
+
+.delete-item:hover {
+  color: #ff0000;
+}
+
+#itemList .item-row.non-alchemical {
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+#itemList .item-row.non-alchemical .item-name {
+    color: #ff0000;
+}
+
+#itemList .non-alchemical-icon {
+    color: #ff0000;
+    margin-left: 5px;
+}
