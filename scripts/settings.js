@@ -71,7 +71,8 @@ export class AlembicSettings {
     }
 
     try {
-      const content = await renderTemplate('modules/pf2e-alembic/templates/settings.html', this.getSettings());
+      const settings = this.getSettings();
+      const content = await renderTemplate('modules/pf2e-alembic/templates/settings.html', settings);
       
       this.settingsWindow = new Dialog({
         title: "Alembic Settings",
@@ -100,6 +101,11 @@ export class AlembicSettings {
         default: "save",
         close: () => {
           this.settingsWindow = null;
+        },
+        render: (html) => {
+          // Set the current values in the input fields
+          html.find('#versatile-vials').val(settings.versatileVials);
+          html.find('#daily-preparations').val(settings.dailyPreparations);
         }
       });
 
