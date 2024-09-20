@@ -18,7 +18,7 @@ Alembic is a Foundry VTT module designed to help Pathfinder 2e players manage th
 
 ## Installation
 
-1. Install the module from the Foundry VTT module browser by pasting the following URL into the "Install Module" dialog: https://github.com/CalvinSmithDev/Alembic/raw/main/module.json
+1. Install the module from the Foundry VTT module browser by pasting the following URL into the "Install Module" dialog: https://github.com/CalvinSmithDev/pf2e-alembic/raw/refs/tags/v1.0.0/module.json
 
 ## Usage
 
