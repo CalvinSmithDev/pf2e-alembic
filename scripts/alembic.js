@@ -59,9 +59,8 @@ class Alembic extends Application {
     }
 
     // Use the settings for maxVials and maxItems
-    const maxVials = this.maxVials || (intMod + 2);
-    const maxItems = this.dailyPreparations || (intMod + 4);
-
+    const maxVials = this.maxVials ?? (intMod + 2);
+    const maxItems = this.dailyPreparations ?? (intMod + 4);
     // Return data object for the template
     return {
       intMod,
@@ -107,6 +106,7 @@ class Alembic extends Application {
 
     // Update the vial count in both minimized and maximized views
     this.updateVialCount();
+    this.updateDailyPreparationsCount();
 
     return rendered;
   }
@@ -183,6 +183,7 @@ class Alembic extends Application {
 
       this.items.push({ id: uniqueId, name, uuid, isAlchemical });
       this.render();
+      this.updateDailyPreparationsCount();
     } else {
       ui.notifications.warn(`Maximum number of items (${maxItems}) reached!`);
     }
@@ -295,6 +296,7 @@ class Alembic extends Application {
       this.spawnedItems = this.spawnedItems.concat(itemsToProcess);
       this.items = this.items.slice(totalItemsAdded);
       this.render();
+      this.updateDailyPreparationsCount();
       this.sendChatMessage(`Created ${totalItemsAdded} infused alchemical items: ${itemsToProcess.map(item => item.name).join(', ')}`);
     } catch (error) {
       // console.error("Error adding items to inventory:", error);
@@ -343,6 +345,7 @@ class Alembic extends Application {
     this.spawnedItems = [];
     this.items = [];
     this.render(true);
+    this.updateDailyPreparationsCount();
     ui.notifications.info("Daily preparations have been reset.");
   }
 
@@ -569,6 +572,22 @@ class Alembic extends Application {
     }
   }
 
+  // Update the daily preparations count displayed in the UI
+  updateDailyPreparationsCount() {
+    const { maxItems } = this.getData();
+    const currentPreparations = this.items.length + this.spawnedItems.length;
+
+    const preparationsCountText = game.i18n.format("myModule.alembic.ui.preparationsCount", {
+      current: currentPreparations,
+      max: maxItems
+    });
+
+    const preparationsCountElement = this.element.find('.preparations-count');
+    if (preparationsCountElement.length) {
+      preparationsCountElement.text(preparationsCountText);
+    }
+  }
+
   async _onOpenFormulaBook(event) {
     event.preventDefault();
     const formulasApp = Formulas.getInstance();
@@ -592,16 +611,19 @@ class Alembic extends Application {
   _removeItem(id) {
     this.items = this.items.filter(item => item.id !== id);
     this.render();
+    this.updateDailyPreparationsCount();
   }
 
-  // Add these new methods
   updateMaxVials(value) {
     this.maxVials = value;
     this.render(true);
   }
 
   updateDailyPreparations(value) {
-    this.dailyPreparations = parseInt(value);
+    this.dailyPreparations = value;
+    // Reset the current items and spawned items
+    this.items = [];
+    this.spawnedItems = [];
     this.render(true);
   }
 }
@@ -707,7 +729,7 @@ Hooks.on('renderAlembic', async (app, html, data) => {
   }
 
   // Update UI elements with localization and counts
-  html.find('#itemCount').text(game.i18n.format("myModule.alembic.ui.itemCount", {
+  html.find('.preparations-count').text(game.i18n.format("myModule.alembic.ui.itemCount", {
     current: data.items.length + data.spawnedItems.length,
     max: data.maxItems
   }));
